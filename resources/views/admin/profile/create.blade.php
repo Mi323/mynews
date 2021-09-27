@@ -38,28 +38,28 @@ initial-scale=1">
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2">氏名(name)</label>
+                        <label class="col-md-2"for="氏名(name)">氏名(name)</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="title" value="{{ old('title') }}">
                         </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-2">性別(gender)</label>
+                        <label class="col-md-2"for="性別(gender)">性別(gender)</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="title" value="{{ old('title') }}">
                         </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-2">趣味(hobby)</label>
+                        <label class="col-md-2"for="趣味(hobby)">趣味(hobby)</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="title" value="{{ old('title') }}">
                         </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-2">自己紹介欄(introduction)</label>
+                        <label class="col-md-2"for="自己紹介欄(introduction)">自己紹介欄(introduction)</label>
                         <div class="col-md-10">
                             <textarea class="form-control" name="body" rows="20">{{ old('body') }}</textarea>
                         </div>
