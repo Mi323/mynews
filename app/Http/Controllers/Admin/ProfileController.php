@@ -26,8 +26,8 @@ class ProfileController extends Controller
     unset($form['_token']);
     
       // データベースに保存する
-    $Profile->fill($form);
-    $Profile->save();
+    $profile->fill($form);
+    $profile->save();
     
         return redirect('admin/profile/create');
     }
