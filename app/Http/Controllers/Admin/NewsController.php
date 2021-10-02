@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\News;
+// 以下を追記（カリキュラム17）
+use App\History;
+use Carbon\Carbon;
 
 class NewsController extends Controller
 {
@@ -14,10 +17,10 @@ class NewsController extends Controller
     {
         return view('admin.news.create');
     }
-///13カリキュラムで以下を追記
+///以下を追記（13カリキュラム）
     public function create(Request $request)
   {
-      // 14カリキュラム以下を追記
+      // 以下を追記（14カリキュラム）
       // Varidationを行う
       $this->validate($request, News::$rules);
       $news = new News;
@@ -91,6 +94,13 @@ class NewsController extends Controller
       unset($news_form['_token']);
       // 該当するデータを上書きして保存する
       $news->fill($news_form)->save();
+      
+      // 以下を追記(カリキュラム17)
+      $history = new History();
+      $history->news_id = $news->id;
+      $history->edited_at = Carbon::now();
+      $history->save();
+      
       return redirect('admin/news');
       
   }

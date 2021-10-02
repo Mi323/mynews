@@ -23,19 +23,19 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="gender">性別</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="gender" >{{ $profile_form->gender }}</textarea>
+                            <input class="form-control" name="gender" >{{ $profile_form->gender }}</input>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="hobby">趣味</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="body">{{ $profile_form->hobby }}</textarea>
+                            <input class="form-control" name="body">{{ $profile_form->hobby }}</input>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="introduction">自己紹介</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="introduction" rows="20">{{ $profile_form->introduction }}</textarea>
+                            <input class="form-control" name="introduction" rows="20">{{ $profile_form->introduction }}</input>
                         </div>
                     </div>
                     
@@ -48,6 +48,22 @@
                         </div>
                     </div>
                 </form>
+                {{-- 以下を追記(カリキュラム17課題)　--}}
+                <div class="row mt-5">
+                    <div class="col-md-4 mx-auto">
+                        <h2>編集履歴</h2>
+                        <ul class="list-group">
+                            @if ($profile_form->historiesprofiles != NULL)
+                                @foreach ($profile_form->historiesprofiles as $history_profiles)
+                                    <li class="list-group-item">{{ $history_profiles->edited_at }}</li>
+                                @endforeach
+                            @endif
+                        </ul>
+                    </div>
+                </div>
+                
+                
+                
             </div>
         </div>
     </div>
