@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Profile;
 
 // 以下を追記(カリキュラム17課題)
-use App\HistoryProfiles;
+use App\HistoriesProfiles;
 
 use Carbon\Carbon;
 
@@ -37,6 +37,20 @@ class ProfileController extends Controller
       return redirect('admin/profile/create');
     }
     
+     public function index(Request $request)
+  {
+      $cond_title = $request->cond_title;
+      if ($cond_title != '') {
+          // 検索されたら検索結果を取得する
+          $posts = Profile::where('title', $cond_title)->get();
+      } else {
+          // それ以外はすべてのニュースを取得する
+          $posts = Profile::all();
+      }
+      return view('admin.profile.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+  }
+    
+    
     public function edit(Request $request)
     {
       $profile = Profile::find($request->id);
@@ -61,7 +75,7 @@ class ProfileController extends Controller
       $profile->fill($profile_form)->save();
       
       // 以下を追記（カリキュラム17課題)
-      $history_profiles = new HistoryProfiles();
+      $history_profiles = new HistoriesProfiles();
       $history_profiles->profile_id = $profile->id;
       $history_profiles->edited_at = Carbon::now();
       $history_profiles->save();
@@ -70,5 +84,14 @@ class ProfileController extends Controller
       return redirect('admin/profile/');
     }
     
+    
+    public function delete(Request $request)
+  {
+      // 該当するProfile Modelを取得
+      $profile = Profile::find($request->id);
+      // 削除する
+      $profile->delete();
+      return redirect('admin/profile/');
+  }  
     
 }
