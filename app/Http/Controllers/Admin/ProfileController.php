@@ -67,7 +67,7 @@ class ProfileController extends Controller
       $history_profiles->save();
       
       
-      return redirect('admin/profile');
+      return redirect('admin/profile/');
     }
     
     

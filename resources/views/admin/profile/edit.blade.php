@@ -23,19 +23,19 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="gender">性別</label>
                         <div class="col-md-10">
-                            <input class="form-control" name="gender" >{{ $profile_form->gender }}</input>
+                            <input class="form-control" name="gender" value="{{ $profile_form->gender }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="hobby">趣味</label>
                         <div class="col-md-10">
-                            <input class="form-control" name="body">{{ $profile_form->hobby }}</input>
+                            <input class="form-control" name="hobby" value="{{ $profile_form->hobby }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="introduction">自己紹介</label>
                         <div class="col-md-10">
-                            <input class="form-control" name="introduction" rows="20">{{ $profile_form->introduction }}</input>
+                            <input class="form-control" name="introduction" rows="20" value="{{ $profile_form->introduction }}">
                         </div>
                     </div>
                     
