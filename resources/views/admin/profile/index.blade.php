@@ -33,17 +33,20 @@
                             <tr>
                                 <th width="10%">ID</th>
                                 <th width="20%">氏名</th>
-                                <th width="20%">性別</th>
-                                <th width="20%">趣味</th>
-                                <th width="20%">自己紹介</th>
+                                <th width="10%">性別</th>
+                                <th width="10%">趣味</th>
+                                <th width="30%">自己紹介</th>
                                 <th width="10%">操作</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($posts as $profile)
                                 <tr>
-                                    <th>{{ $news->id }}</th>
-                                    <td>{{ str_limit($profile->title, 100) }}</td>
+                                    <th>{{ $profile->id }}</th>
+                                    <td>{{ str_limit($profile->name, 100) }}</td>
+                                    <td>{{ str_limit($profile->gender, 100) }}</td>
+                                    <td>{{ str_limit($profile->hobby, 100) }}</td>
+                                    <td>{{ str_limit($profile->introduction, 100) }}</td>
                                     <td>{{ str_limit($profile->body, 250) }}</td>
                                     <td>
                                         <div>
