@@ -18,7 +18,7 @@ initial-scale=1">
 @extends('layouts.profile')
 
 
-{{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
+{{-- admin.blade.phpの@yield('title')に'プロフィールの新規作成'を埋め込む --}}
 @section('title', 'プロフィールの新規作成')
 
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
@@ -68,9 +68,6 @@ initial-scale=1">
                     {{ csrf_field() }}
                     <input type="submit" class="btn btn-primary" value="更新">
                 </form>
-                
-                
-                
             </div>
         </div>
     </div>
