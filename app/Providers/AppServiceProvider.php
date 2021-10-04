@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //以下を追記
+        //以下を追記(カリキュラムHerokuへのデプロイ)
         if (\App::environment('production')) {
             \URL::forceScheme('https');
     }
