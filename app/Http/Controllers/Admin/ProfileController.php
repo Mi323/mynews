@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Profile;
 
 // 以下を追記(カリキュラム17課題)
-use App\HistoriesProfiles;
+use App\HistoryProfile;
 
 use Carbon\Carbon;
 
@@ -17,6 +17,13 @@ class ProfileController extends Controller
     //
     public function add()
     {
+       $profile = new Profile;
+       $profile->name = "ハシ";
+       $profile->gender = "男";
+       $profile->hobby = "旅行";
+       $profile->introduction = "よろしくお願いします";
+       $profile->save();
+       
         return view('admin.profile.create');
     }
     
@@ -75,10 +82,10 @@ class ProfileController extends Controller
       $profile->fill($profile_form)->save();
       
       // 以下を追記（カリキュラム17課題)
-      $history_profiles = new HistoriesProfiles();
-      $history_profiles->profile_id = $profile->id;
-      $history_profiles->edited_at = Carbon::now();
-      $history_profiles->save();
+      $history = new HistoryProfile();
+      $history->profile_id = $profile->id;
+      $history->edited_at = Carbon::now();
+      $history->save();
       
       
       return redirect('admin/profile/');
