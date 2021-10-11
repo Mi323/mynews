@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\News;
 // 以下を追記（カリキュラム17）
 use App\History;
+use App\Posts;
 use Carbon\Carbon;
 use Storage; //追加(カリキュラムHerokuへの画像のアップロード)
 
@@ -16,6 +17,10 @@ class NewsController extends Controller
     
     public function add()
     {
+        $posts = new Posts;
+        $posts->greeting = "Hello Everyone";
+        $posts->save();
+        
         return view('admin.news.create');
     }
 ///以下を追記（13カリキュラム）
