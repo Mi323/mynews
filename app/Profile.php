@@ -17,9 +17,9 @@ class Profile extends Model
     
      // 以下を追記(カリキュラム17課題)
     // Profiles Modelに関連付けを行う
-    public function histories_profiles()
+    public function histories()
     {
-        return $this->hasMany('App\HistoryProfile');
+        return $this->hasMany('App\Phistory');
 
     }
 }
